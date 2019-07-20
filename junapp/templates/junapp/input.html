@@ -1,0 +1,14 @@
+<html>
+<form action="{% url 'check-harvesting' %}" method="post">
+    {% csrf_token %}
+    <input type="number" name="area" placeholder="Area">
+    <input type="number" name="use" placeholder="usage">
+    <select name="type">
+        <option value="1">Cemented Roof</option>
+        <option value="2">Tile Roof</option>
+        <option value="3">Slope Tile Roof</option>
+        <option value="4">Jasta Roof</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+</html>
