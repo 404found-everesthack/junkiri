@@ -13,18 +13,14 @@
         <form action="{% url 'check-harvesting' %}" method="post">
     {% csrf_token %}
         <div class="c1">
-            <h3>Average Water Supply</h3>
-            <input type="text" placeholder="Enter your average water supply amount(in ltrs)">
-        </div>
-        <div class="c2">
             <h3>Average Water Usage</h3>
             <input type="text" placeholder="Enter your average water usage amount(in ltrs)">
         </div>
-        <div class="c3">
+        <div class="c2">
             <h3>House Surface Area</h3>
             <input type="text" placeholder="Enter the surface area here..">
         </div>
-        <div class="c4">
+        <div class="c3">
             <h3>Choose Terrace Type</h3>
             <div class="terrace-type">
                 <label>
@@ -119,7 +115,7 @@
     }, 1200);
     var count= 1;
 
-    $('#nxt').click(function () {
+   $('#nxt').click(function () {
         count++;
 
         if( count ==2){
@@ -128,14 +124,10 @@
             $('.c2').addClass('show fade-in');
 
         }
-        else  if( count==3){
+
+        else if( count==3){
             $('.c2').removeClass('show').addClass('hide');
             $('.c3').addClass('show fade-in');
-
-        }
-        else if( count==4){
-            $('.c3').removeClass('show').addClass('hide');
-            $('.c4').addClass('show fade-in');
             $('.next-input').removeClass('show').addClass('hide');
             $('.submit-input').removeClass('hide').addClass('show');
 
@@ -151,13 +143,10 @@
             $('.prev-input').removeClass('show').addClass('hide');
 
         }
-        if(count ==3){
+
+        if(count==3){
             $('.c3').removeClass('show').addClass('hide');
             $('.c2').removeClass('hide').addClass('show fade-in');
-        }
-        if(count==4){
-            $('.c4').removeClass('show').addClass('hide');
-            $('.c3').removeClass('hide').addClass('show fade-in');
             $('.next-input').removeClass('hide').addClass('show');
             $('.submit-input').removeClass('show').addClass('hide');
 
