@@ -1,0 +1,221 @@
+/*#####################################header css##################################*/
+.header{
+    height: 4.5rem;
+    background: #34383c;
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 15;
+}
+.header-font{
+    color:#ffffff;
+    margin-right: 4%;
+}
+.header-menu{
+    height: 100%;
+}
+.logo{
+    height: 100%;
+    width: auto;
+    position: relative;
+    transform: translate(-50%,0);
+    left:50%;
+}
+.user-account{
+    height: 100%;
+    background: #1e2226;
+    float: right;
+    width: 15%;
+    padding-top:1%;
+}
+.icon-image{
+    width: 24px;
+    height: 24px;
+}
+
+/*style for user account*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+
+    display: none;
+    position: absolute;
+    background-color: #1e2226;
+    color: #ffffff;
+    min-width: 100%;
+    z-index: 1;
+    right: 0;
+    margin-top:6%;
+
+}
+.dropdown-content li{
+    list-style: none;
+}
+.dropdown-content li:hover{
+    background-color: #247ad1;
+
+}
+.dropdown-content li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.dropdown-content li a:hover{
+    color: white;
+    background-color: #247ad1;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.profile-img-header{
+    border-radius: 45%;
+    height: 25px;
+    width: 25px;
+    margin-left: 5%;
+}
+.profile-img{
+    height: 80px;
+    width: 70px;
+    padding-top: 15%;
+    padding-left: 10%;
+
+}
+.insights-green{
+    width: auto;
+    border-left: #91c46b 2px solid;
+    padding-left: 2%;
+    height: auto;
+}
+.insights-blue{
+    width: auto;
+    border-left: #2d8eda 2px solid;
+    padding-left: 2%;
+    height: auto;
+}
+.insights-red{
+    width: auto;
+    border-left: #f15822 2px solid;
+    padding-left: 2%;
+    height: auto;
+}
+
+.user-name-header{
+    color: #ffffff;
+    margin-left: 6%;
+}
+.user-name-header a:hover{
+    color: #51575c;
+    text-decoration: none;
+}
+
+/*##########################################header css ends###########################*/
+
+
+/* ########################################## essentials css starts ##########################################*/
+.row{
+    margin: 0;
+}
+.no-side-pad{
+    padding-left: 0;
+    padding-right: 0;
+}
+.no-pad{
+    padding:0;
+}
+.no-bt-margin{
+    margin-bottom: 0;
+}
+.no-margin{
+    margin:0;
+}
+#page-content-wrapper{
+    width:95%;
+    min-height: 100%;
+    position: relative;
+    margin-top:3%;
+    padding: 15px;
+    margin-left: 5%;
+    background-color: #f1f1f1;
+    /*height: auto;*/
+}
+.section-wrapper{
+    background: #FFFFFF;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    overflow: auto;
+    box-shadow: 0 12px 18px rgba(0,0,0,0.12);
+}
+.half-section-wrapper{
+    background: #FFFFFF;
+    width: 48.5%;
+    display: inline-block;
+    /*float: right;*/
+    margin-right:1%;
+    margin-bottom: 20px;
+    padding: 15px;
+    overflow: auto;
+    box-shadow: 0 12px 18px rgba(0,0,0,0.12);
+
+}
+.disp-inline{
+    display: inline-block;
+}
+.graph{
+    width:35rem;
+    height:auto;
+}
+
+
+/* ########################################## essentials css ends ##########################################*/
+
+
+/*##############################footer css#############################################*/
+.footer{
+    width:100%;
+    height: auto;
+    margin: auto;
+    background: #1e2226;
+    padding: 20px 0px;
+    position: relative;
+    clear: both;
+    z-index: 20;
+}
+.footer-social-icon{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.footer-social-icon ul{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.footer-social-icon ul li{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0px 1px;
+}
+.footer-menu{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.footer-menu ul{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.footer-menu ul li{
+    color: #ffffff;
+    display: inline-block;
+    margin: 0px 5px 25px;
+}
+/*##############################footer css ends#############################################*/

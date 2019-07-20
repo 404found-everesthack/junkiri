@@ -1,14 +1,173 @@
 <html>
-<form action="{% url 'check-harvesting' %}" method="post">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/css/harvest.css">
+
+    <script src="style/js/jquery.min.js"></script>
+    <script src="style/js/bootstrap.min.js"></script>
+
+
+<div class="top-half">
+    <div class="calculation-container">
+        <form action="{% url 'check-harvesting' %}" method="post">
     {% csrf_token %}
-    <input type="number" name="area" placeholder="Area">
-    <input type="number" name="use" placeholder="usage">
-    <select name="type">
-        <option value="1">Cemented Roof</option>
-        <option value="2">Tile Roof</option>
-        <option value="3">Slope Tile Roof</option>
-        <option value="4">Jasta Roof</option>
-    </select>
+        <div class="c1">
+            <h3>Average Water Supply</h3>
+            <input type="text" placeholder="Enter your average water supply amount(in ltrs)">
+        </div>
+        <div class="c2">
+            <h3>Average Water Usage</h3>
+            <input type="text" placeholder="Enter your average water usage amount(in ltrs)">
+        </div>
+        <div class="c3">
+            <h3>House Surface Area</h3>
+            <input type="text" placeholder="Enter the surface area here..">
+        </div>
+        <div class="c4">
+            <h3>Choose Terrace Type</h3>
+            <div class="terrace-type">
+                <label>
+                    <input type="radio" name="terrace" value="t1">
+                    <img src="images/concrete.jpeg">
+                    <p class="text-center">Concrete</p>
+                </label>
+                <label>
+                    <input type="radio" name="terrace" value="t2">
+                    <img src="images/tile.jpg">
+                    <p class="text-center">Tile</p>
+
+                </label>
+                <label>
+                    <input type="radio" name="terrace" value="t3">
+                    <img src="images/brick-tile.jpg">
+                    <p class="text-center">Brick tile</p>
+
+                </label>
+                <label>
+                    <input type="radio" name="terrace" value="t4">
+                    <img src="images/zinc.jpg">
+                    <p class="text-center">Metal Sheet</p>
+
+                </label>
+
+            </div>
+
+        </div>
+        <div class="prev-input">
+            <button id="prv"><i class="fa fa-chevron-left"></i>
+                Previous
+            </button>
+        </div>
+        <div class="next-input">
+            <button id="nxt">Next
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="submit-input">
+            <button id="sbt">Submit
+                <i class="fa fa-thumbs-up"></i>
+            </button>
+        </div>
+        </form>
+    </div>
+    <div class="cloudleft">
+        <img src="images/cloud-anim.png" class="img-responsive">
+    </div>
+    <div class="cloudright">
+        <img src="images/cloud-anim.png" class="img-responsive">
+    </div>
+</div>
+<div class="container">
+    <div class="row steps">
+        <h3 class="text-center">Benefits of Rainwater harvesting</h3>
+        <div style="transform:translate(-50%,0);height:2px; left:50%; border-bottom:2px solid #019cff; width:250px;position:relative;top:-20px"></div>
+        <div class="col-md-4">
+            <button disabled>1</button>
+            <h4>Provides backup source of water</h4>
+            <p>
+                There are many uncertainties in water supply systems. Droughts may lead to shortage of water. Destruction of water supply systems may occur at specific locations. Major repairs and maintenance in water companies happen sporadically. All these variables lead to unavailability of water in your home. So, installing rainwater harvesting system is the best course of action to continue enjoying water supply in case any of the above variables occur.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <button disabled>2</button>
+            <h4>Ecological benefit</h4>
+            <p>
+                The ecological benefits of rainwater harvesting are immense. An activity like flushing the toilet, for instance, attributes to about 35% of home water usage. Add up the amount of water used to irrigate the lawn, do laundry, wash cars and the total amount water used is simply astronomical. For businesses, more so hospitality establishments that accommodate a big number of guests in a single location, require a lot of water to satisfy customers. Rainwater harvesting will simply help to fill this gap.
+            </p>
+
+        </div>
+        <div class="col-md-4">
+            <button disabled>3</button>
+            <h4>Easy to maintain</h4>
+            <p>
+                Rainwater harvesting systems are considerably easy to maintain since they are not utilized for drinking, cooking or other sensitive uses. This means that they will not need installation of purification systems, which are usually expensive.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.cloudleft').delay(500).animate({left:'35%'});
+        $('.cloudright').delay(500).animate({right:'-5%'});
+
+    });
+    setTimeout(function(){
+        $('.calculation-container').addClass('fade-in');
+    }, 1200);
+    var count= 1;
+
+    $('#nxt').click(function () {
+        count++;
+
+        if( count ==2){
+            $('.prev-input').addClass('show');
+            $('.c1').addClass('hide').removeClass('show');
+            $('.c2').addClass('show fade-in');
+
+        }
+        else  if( count==3){
+            $('.c2').removeClass('show').addClass('hide');
+            $('.c3').addClass('show fade-in');
+
+        }
+        else if( count==4){
+            $('.c3').removeClass('show').addClass('hide');
+            $('.c4').addClass('show fade-in');
+            $('.next-input').removeClass('show').addClass('hide');
+            $('.submit-input').removeClass('hide').addClass('show');
+
+        }
+
+
+    });
+    $('#prv').click(function () {
+
+        if(count ==2){
+            $('.c2').removeClass('show').addClass('hide');
+            $('.c1').removeClass('hide').addClass('show fade-in');
+            $('.prev-input').removeClass('show').addClass('hide');
+
+        }
+        if(count ==3){
+            $('.c3').removeClass('show').addClass('hide');
+            $('.c2').removeClass('hide').addClass('show fade-in');
+        }
+        if(count==4){
+            $('.c4').removeClass('show').addClass('hide');
+            $('.c3').removeClass('hide').addClass('show fade-in');
+            $('.next-input').removeClass('hide').addClass('show');
+            $('.submit-input').removeClass('show').addClass('hide');
+
+
+        }
+        count--;
+
+
+    })
+</script>
     <input type="submit" value="Submit">
 </form>
 </html>
