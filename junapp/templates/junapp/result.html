@@ -1,12 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    {% load staticfiles %}
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+    <script src="{% static 'junapp/dimple.v2.3.0.min.js' %}"></script>
+    <style>
+        .none {display: none}
+    </style>
 </head>
 <body>
-{#{%  for i in result%}#}
-        {{ result }}
-{#{% endfor %}#}
+<script type="text/javascript">
+    {% autoescape off %}
+        var data={{ result.monthly }}
+    {% endautoescape %}
+
+    function filterdata() {
+        var filtered_data = [];
+        {#                 console.log(vespa_result_day);#}
+        for (var i = 0; i < data.length; i++) {
+            var dict = {
+                "Month":data[i]['month'],
+                "Rainfall Water Collected (lt)": data[i]['rainfall'],
+                "Usage":data[i]['usage']
+            };
+            filtered_data.push(dict)
+        }
+        console.log(filtered_data);
+        return filtered_data;
+    }
+
+    var svg = dimple.newSvg("body", 800, 600);
+    var chart = new dimple.chart(svg, filterdata());
+    var x = chart.addCategoryAxis("x", "Month");
+    // First y axis is the combination axis for revenue and profit
+    var y1 = chart.addMeasureAxis("y", "Rainfall Water Collected (lt)");
+    var y2 = chart.addMeasureAxis("y", "Usage");
+    y1.overrideMax = {{ result.max }};
+    y2.overrideMax = {{ result.max }};
+    var bars = chart.addSeries("Average Rainfall", dimple.plot.bar, [x,y1]);
+    // Use a simple line by metric for the other measures
+    var lines = chart.addSeries("Water Usage", dimple.plot.line, [x,y2]);
+    lines.lineMarkers = true;
+    {#      bars.barGap = 0.5;#}
+    // Colour the bars manually so they don't overwhelm the lines
+    {#      chart.assignColor("Unit Sales", "black", "black", 0.15);#}
+
+    {#      x.dateParseFormat = "%m/%Y";#}
+    x.addOrderRule(['January','February','March','April','May','June','July','August','September','October','November','December']);
+
+
+    // Here's how you add a legend for just one series.  Excluding the last parameter
+    // will include every series or an array of series can be passed to select more than
+    // one
+    chart.addLegend(60, 5, 680, 10, "right", lines);
+    chart.addLegend(60, 5, 680, 10, "right", bars);
+    chart.draw();
+    y2.titleShape.remove();
+
+
+    {#    chart.addCategoryAxis("x", "Month");#}
+    {#    chart.addOrderRule(['January','February']);#}
+    {#    chart.addOrderRule("xAxis", false);#}
+    {#    chart.addMeasureAxis("y", "Rainfall");#}
+    {#    chart.addSeries(null, dimple.plot.bar);#}
+    {#    chart.draw();#}
+
+</script>
 </body>
-</html>
+
+{#<div>From <a href="http://stackoverflow.com/questions/18620053/multi-series-in-dimplejs">http://stackoverflow.com/questions/18620053/multi-series-in-dimplejs</a></div>#}
+{##}
+{#<div id="chartContainer">#}
+{#  <script src="http://d3js.org/d3.v3.min.js"></script>#}
+{#  <script src="http://dimplejs.org/dist/dimple.v1.1.3.min.js"></script>#}
+{#  <script type="text/javascript">#}
+{#      var svg = dimple.newSvg("#chartContainer", 800, 400);#}
+{##}
+{#      // Data hack required to get revenue and profit on the same axis, units are#}
+{#      // arbitrarily allocated to revenue but the values will be summed by date#}
+{#      var data = [#}
+{#          {"Month":"01/2013", "Metric":"Revenue", "Revenue/Profit":2000, "Units":4},#}
+{#          {"Month":"02/2013", "Metric":"Revenue", "Revenue/Profit":3201, "Units":3},#}
+{#          {"Month":"03/2013", "Metric":"Revenue", "Revenue/Profit":1940, "Units":5},#}
+{#          {"Month":"04/2013", "Metric":"Revenue", "Revenue/Profit":2500, "Units":1},#}
+{#          {"Month":"05/2013", "Metric":"Revenue", "Revenue/Profit":800, "Units":4},#}
+{#          {"Month":"01/2013", "Metric":"Profit", "Revenue/Profit":2000, "Units":0},#}
+{#          {"Month":"02/2013", "Metric":"Profit", "Revenue/Profit":2000, "Units":0},#}
+{#          {"Month":"03/2013", "Metric":"Profit", "Revenue/Profit":14000, "Units":0},#}
+{#          {"Month":"04/2013", "Metric":"Profit", "Revenue/Profit":3200, "Units":0},#}
+{#          {"Month":"05/2013", "Metric":"Profit", "Revenue/Profit":1200, "Units":0}#}
+{#      ];#}
+{##}
+{#      var chart = new dimple.chart(svg, data);#}
+{#      chart.setBounds(60,20,680,330);#}
+{##}
+{#      // Add your x axis - nothing unusual here#}
+{#      var x = chart.addCategoryAxis("x", "Month");#}
+{#      // First y axis is the combination axis for revenue and profit#}
+{#      var y1 = chart.addMeasureAxis("y", "Revenue/Profit");#}
+{#      // Second is the units only#}
+{#      var y2 = chart.addMeasureAxis("y", "Units");#}
+{##}
+{#      // Plot the bars first - the order of series determines their dom position#}
+{#      // from back to front, this means bars are at the back.  It's important#}
+{#      // to note that the string here "Unit Sales" is NOT in the data.  Any string#}
+{#      // not in the data is just used to apply a label which can be used for colouring#}
+{#      // as it is here and will also appear in tool tips#}
+{#      var bars = chart.addSeries("Unit Sales", dimple.plot.bar, [x,y2]);#}
+{#      // Use a simple line by metric for the other measures#}
+{#      var lines = chart.addSeries("Metric", dimple.plot.line, [x,y1]);#}
+{##}
+{#      // Do a bit of styling to make it look nicer#}
+{#      lines.lineMarkers = true;#}
+{#      bars.barGap = 0.5;#}
+{#      // Colour the bars manually so they don't overwhelm the lines#}
+{#      chart.assignColor("Unit Sales", "black", "black", 0.15);#}
+{##}
+{#      x.dateParseFormat = "%m/%Y";#}
+{#      x.addOrderRule("Date");#}
+{##}
+{##}
+{#      // Here's how you add a legend for just one series.  Excluding the last parameter#}
+{#      // will include every series or an array of series can be passed to select more than#}
+{#      // one#}
+{#      chart.addLegend(60, 5, 680, 10, "right", lines);#}
+{##}
+{#      chart.draw();#}
+{##}
+{#      // Once Draw is called, this just changes the number format in the tooltips which for these particular#}
+{#      // numbers is a little too heavily rounded.  I assume your real data isn't like this#}
+{#      // so you probably won't want this line, but it's a useful tip anyway!#}
+{#      y1.tickFormat = ",d";#}
+{##}
+{#  </script>#}
+{#</div>#}

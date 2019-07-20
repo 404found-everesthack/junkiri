@@ -76,7 +76,7 @@ body{
     display: inline-flex;
     height:3rem;
 }
-.next-input button{
+.next-input span{
     border: none;
     background: none;
     outline: none;
@@ -84,7 +84,7 @@ body{
 .next-input .fa{
     padding-left: 5px;
 }
-.next-input button:hover{
+.next-input span:hover{
     transform: scale(1.2);
     color:green;
     font-weight: bold;
