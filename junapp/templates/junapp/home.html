@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+{# *************************************header starts *************************************#}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/css/style.css">
+
+    <script src="style/js/jquery.min.js"></script>
+    <script src="style/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="style/css/sidebar.css">
+</head>
+
+<body>
+
+<div id="wrapper">
+    <!--        Horizontal Header-->
+    <div class="header ">
+        <img src="images/logo/Gov.png" class="logo">
+        <!--            User account on top right corner-->
+        <div class="dropdown user-account">
+            <a class="user-name-header" onclick="myFunction()"> Name Surname <b class="caret"></b></a>
+
+            <div id="myDropdown" class="dropdown-content">
+
+
+                <div class="col-md-12 no-side-pad ">
+                    <ul class="no-pad no-bt-margin">
+                        <li class="bottom-mark"><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--        Header Ends here-->
+    <!--        Default side nav bar starts-->
+    <div id ="default-sidebar" class="default"  onmouseover="detail()" >
+        <ul class="sidebar-nav-default">
+            <li><a href="#"><img src="images/icon/hospital.png" class="nav-icon"></a></li>
+            <li><a href="#"><img src="images/icon/cloud.png" class="nav-icon"></a></li>
+            <li><a href="#"><img src="images/icon/communicate.png" class="nav-icon"></a></li>
+            <li><a href="#"><img src="images/icon/transport.png" class="nav-icon"></a></li>
+
+        </ul>
+    </div>
+
+    <!--        Default side nav bar ends here-->
+    <!--Discriptive side navbar on clicking logo starts-->
+    <div class="detail" id="detail-sidebar" onmouseover="detail()" onmouseout="defaultSidebar()" >
+        <ul class="sidebar-nav">
+            <li><a href="#"><img src="images/icon/hospital.png" class="nav-icon-desc">Hospital</a></li>
+            <li><a href="#"><img src="images/icon/cloud.png" class="nav-icon-desc">Resources</a></li>
+            <li><a href="#"><img src="images/icon/communicate.png" class="nav-icon-desc">Telecommunication</a></li>
+            <li><a href="#"><img src="images/icon/transport.png" class="nav-icon-desc">Transportation</a></li>
+
+        </ul>
+
+    </div>
+    <!--discrptive side nav bar ends here-->
+
+
+    <script>
+        //        display detail sidebar onover
+        function detail(e) {
+            $("#detail-sidebar").show();
+            $("#default-sidebar").hide();
+            document.getElementById("page-content-wrapper").style.marginLeft="14%";
+            document.getElementById("page-content-wrapper").style.width="86%";
+
+        }
+        //        display default sidebar on mouseout
+        function defaultSidebar() {
+            $("#detail-sidebar").hide();
+            $("#default-sidebar").show();
+            document.getElementById("page-content-wrapper").style.marginLeft="5%";
+            document.getElementById("page-content-wrapper").style.width="95%";
+
+
+        }
+        //        script for logout starts
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-name-header')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+
+        //        script for logout ends
+    </script>
+
+{# *************************************header ends *************************************#}
+
+    {% blockcontent %}
+
+    {%  endblockcontent%}
+
+{# *************************************footer starts *************************************#}
+</div>
+<div class="footer">
+    <div class="footer-menu">
+        <ul>
+            <li>Home |</li>
+            <li>Privacy Policy |</li>
+            <li>Terms & Condition</li>
+
+        </ul>
+    </div>
+
+    <p class="text-center">&# Nepal Government 2019- All Right Reserved</p>
+</div>
+</body>
+</html>
