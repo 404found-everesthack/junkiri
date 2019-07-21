@@ -1,0 +1,12 @@
+Ward No,Address,Type of Health facility,Does this health facility have its own building?,Infrastructure Needs Repairing,Number of rooms available in the health facilities? Number,How many bed are available in this hospital?,OPD service avaliable?,Immunization Service Avaliable,"How many days, immunization service is provided?",Laboraotry Service Avaliable,ASRH (Adolescent Friendly Services) Service Avaliable,Mental health Service Avaliable,Substance abuse Service Avaliable,Oral Health Service Avaliable,Passed Threshold,lat,long
+18,Udayapur,Health Post,1,1,8,0,1,1,1,0,1,0,0,1,0,28.7765,80.5916
+15,Gatthaghar,Private Hospital,0,1,24,100,1,1,2,1,0,1,0,1,1,28.7392,80.5669
+16,BP chowk,Private Hospital,1,1,45,250,1,1,1,1,0,1,0,1,1,28.7391,80.5669
+1,Chandnath Tole (Jumli Tole),Urban Health Centre,0,1,2,0,1,1,9,0,1,0,1,1,0,27.6743,85.3718
+7,"Phultekra ramnagar, nepalgunj",Urban Health Centre,0,1,2,0,1,1,9,0,1,0,1,1,0,28.0588,81.624
+25,Basudebpur,Health Post,1,0,3,0,1,1,8,0,1,0,0,1,0,28.0679,81.6272
+24,Khaskarkado,Health Post,0,0,2,0,1,1,6,0,1,1,0,1,0,28.0685,81.6278
+28,Puraini,Health Post,1,1,5,0,1,1,6,0,0,0,0,1,0,28.0719,81.6317
+19,Bhawaniyapur,Health Post,1,1,3,0,1,1,9,0,0,0,0,1,0,28.07,81.6338
+16,Nepalgunj,Health Post,1,1,11,0,1,1,6,0,0,0,0,1,0,28.0688,81.635
+13,Charbaihini,Government Hospital,1,0,200,150,1,1,5,1,1,1,1,1,1,28.0502,81.6189

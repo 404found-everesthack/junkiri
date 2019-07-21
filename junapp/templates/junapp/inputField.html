@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Test</title>
+</head>
+<body>
+<form method="POST" action="{% url 'logistic'%}" enctype="multipart/form-data" >{% csrf_token %}
+    <label for = "id_testinput" class = "control-label col-sm-2 ">Test data*</label>
+        <input type="file" id="id_testinput" name="testinput" placeholder="testinput">
+    <input type="submit" class="btn submit-btn" value="Analyze">
+</form>
+
+</body>
+</html>
