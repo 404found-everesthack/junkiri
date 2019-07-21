@@ -24,6 +24,7 @@ from django.views.generic import DetailView
 from .models import hospital
 
 
+
 class CitiesDetailView(DetailView):
     """
         City detail view.
@@ -34,7 +35,42 @@ class CitiesDetailView(DetailView):
 
 def rainwaterharvest(request):
     # return render(request,template_name='junapp/input.html')
-    return render(request, template_name='junapp/uploader.html')
+    return render(request,template_name='junapp/trainresult.html')
+    #
+    # gethospitals = hospital.objects.all()
+    # finaldata = []
+    # for i in gethospitals:
+    #     finaldata.append(
+    #         {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
+
+    # return render(request, 'junapp/logistic.html', {'result': finaldata})
+
+def jsondata(request):
+    dataset=hospital.objects.all()
+    passed=hospital.objects.filter(passed=1).count()
+    failed=hospital.objects.filter(passed=0).count()
+    total=passed+failed
+    result={
+        {'x':'Pass'},{'y':((passed/total)*100)},
+        {'x':'Fail'},{'y':((failed/total)*100)},
+    }
+    port_display_name = dict()
+    j=0
+    for i in dataset:
+        port_display_name[j] = i
+        j=j+1
+    # port_display_name[0]="Pass"
+    # port_display_name[1]="Fail"
+    chart = {
+        'chart': {'type': 'pie'},
+        'title': {'text': 'Titanic Survivors by Ticket Class'},
+        'series': [{
+            'name': 'Embarkation Port',
+            'data': [{'name': row.weight, 'y': row.route_distance} for row in dataset]
+        }]
+    }
+
+    print(jsondata(chart))
 
 def checkharvesting(request):
     runoff=Runoff.objects.filter(id=request.POST.get('type'))
