@@ -9,7 +9,7 @@
 <div class="section-wrapper">
     <form method="POST" action="{% url 'logistic'%}" enctype="multipart/form-data" >{% csrf_token %}
     <label for = "id_testinput" class = "control-label col-sm-2 ">Test data*</label>
-        <input class="file-upload"type="file" id="id_testinput" name="testinput" placeholder="testinput">
+        <input class="file-upload" type="file" id="id_testinput" name="testinput" placeholder="testinput">
     <input type="submit" class="btn analyze-btn submit-btn" value="Analyze">
 </form>
 </div>
