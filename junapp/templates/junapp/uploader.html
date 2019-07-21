@@ -1,5 +1,7 @@
 
-{#include "include/header.php"#}
+{% extends "../templates/junapp/home.html" %}
+
+{% block content %}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'junapp/style/css/uploader.css' %}">
 <script type="45b7b408cf738d94badbc42f-text/javascript">(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
@@ -208,5 +210,5 @@
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="45b7b408cf738d94badbc42f-|49" defer=""></script></body>
 
 
-{#include "include/footer.php"#}
+{%  endblock %}
 
