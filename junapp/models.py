@@ -21,8 +21,21 @@ class Testinput(models.Model):
 class hospital(models.Model):
     ward_no = models.IntegerField()
     address = models.CharField(max_length=200)
-    type = models.IntegerField()
-    passed = models.IntegerField()
-    lat = models.FloatField()
-    log = models.FloatField()
+    type = models.CharField(max_length=200)
+    passed = models.FloatField()
+    lat = models.CharField(max_length=200)
+    log = models.CharField(max_length=200)
+    building = models.IntegerField(null=True)
+    repair = models.IntegerField(null=True)
+    noofrooms = models.IntegerField(null=True)
+    beds = models.IntegerField(null=True)
+    optservice = models.IntegerField(null=True)
+    immunizationservice = models.IntegerField(null=True)
+    oralhealth = models.IntegerField(null=True)
+
+
+
+
+
+
 
