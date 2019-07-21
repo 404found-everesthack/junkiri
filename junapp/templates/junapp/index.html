@@ -1,97 +1,49 @@
-{#include header#}
-
-<div class="header ">
-        <img src="images/logo/Gov.png" class="logo">
-        <!--            User account on top right corner-->
-        <div class="dropdown user-account">
-            <a class="user-name-header" onclick="myFunction()"> K.P. Oli <b class="caret"></b></a>
-
-            <div id="myDropdown" class="dropdown-content">
+{% extends "home.html" %}
+{% block content %}
 
 
-                <div class="col-md-12 no-side-pad ">
-                    <ul class="no-pad no-bt-margin">
-                        <li class="bottom-mark"><a href="#">Edit Profile</a></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
 
-                </div>
-
-            </div>
+<div id="page-content-wrapper">
+    <div class="section-wrapper row disp-inline">
+        <div class="insights-green col-md-1">
+            <h3 class="no-pad">Hospitals</h3>
+            <p>15</p>
         </div>
-    </div>
-
-    <!--        Header Ends here-->
-    <!--        Default side nav bar starts-->
-    <div id ="default-sidebar" class="default"  onmouseover="detail()" >
-        <ul class="sidebar-nav-default">
-            <li><a href="#"><img src="images/icon/dashboard.png" class="nav-icon"></a></li>
-
-            <li><a href="#"><img src="images/icon/hospital.png" class="nav-icon"></a></li>
-            <li><a href="#"><img src="images/icon/cloud.png" class="nav-icon"></a></li>
-            <li><a href="#"><img src="images/icon/communicate.png" class="nav-icon"></a></li>
-            <li><a href="#"><img src="images/icon/transport.png" class="nav-icon"></a></li>
-
-        </ul>
-    </div>
-
-    <!--        Default side nav bar ends here-->
-    <!--Discriptive side navbar on clicking logo starts-->
-    <div class="detail" id="detail-sidebar" onmouseover="detail()" onmouseout="defaultSidebar()" >
-        <ul class="sidebar-nav">
-            <li><a href="#"><img src="images/icon/dashboard.png" class="nav-icon-desc">Home</a></li>
-            <li><a href="#"><img src="images/icon/hospital.png" class="nav-icon-desc">Hospital</a></li>
-            <li><a href="#"><img src="images/icon/cloud.png" class="nav-icon-desc">Resources</a></li>
-            <li><a href="#"><img src="images/icon/communicate.png" class="nav-icon-desc">Telecommunication</a></li>
-            <li><a href="#"><img src="images/icon/transport.png" class="nav-icon-desc">Transportation</a></li>
-
-        </ul>
+        <div class="insights-blue col-md-1">
+            <h3 class="no-pad">Rain Water</h3>
+            <p>1500k ltr</p>
+        </div>
+        <div class="insights-red col-md-1">
+            <h3 class="no-pad">Telecom</h3>
+            <p>1200</p>
+        </div>
+        <div class="insights-green col-md-1">
+            <h3 class="no-pad">Transportation</h3>
+            <p>10</p>
+        </div>
 
     </div>
-    <!--discrptive side nav bar ends here-->
+    <div class="half-section-wrapper">
+        <h4>Hospitals</h4>
+        <img src="images/chart1.jpg" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <h4>Rain Water Harvest</h4>
+
+        <img src="images/chart2.png" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <h4>Telecom</h4>
+
+        <img src="images/chart3.png" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <img src="images/chart2.png" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <img src="images/chart3.png" class="graph">
+    </div>
+</div>
+    {%  endblock %}
 
 
-    <script>
-        //        display detail sidebar onover
-        function detail(e) {
-            $("#detail-sidebar").show();
-            $("#default-sidebar").hide();
-            document.getElementById("page-content-wrapper").style.marginLeft="14%";
-            document.getElementById("page-content-wrapper").style.width="86%";
-
-        }
-        //        display default sidebar on mouseout
-        function defaultSidebar() {
-            $("#detail-sidebar").hide();
-            $("#default-sidebar").show();
-            document.getElementById("page-content-wrapper").style.marginLeft="5%";
-            document.getElementById("page-content-wrapper").style.width="95%";
-
-
-        }
-        //        script for logout starts
-
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.user-name-header')) {
-
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        };
-
-        //        script for logout ends
-    </script>
-
-
-{#include footer#}
