@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Hello
-</body>
-</html>
+{% extends "junapp/home.html" %}
+{% block content %}
+
+   {% load staticfiles %}
+
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    {% load staticfiles %}
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script><div id="page-content-wrapper">
+    <div class="half-section-wrapper">
+        <h4>No of Beds and Rooms</h4>
+        <div class="graph" id="div-chart-price">
+
+        </div>
+    </div>
+    <div class="half-section-wrapper">
+        <h4>Building and Repairment</h4>
+    <div class="graph" id="div-chart">
+
+        </div>
+{#        <img src="{% static 'junapp/images/chart2.png'%}" class="graph">#}
+    </div>
+    <div class="half-section-wrapper">
+        <h4>Telecom</h4>
+
+        <img src="{% static 'junapp/images/chart3.png'%}" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <img src="{% static 'junapp/images/chart1.jpg'%}" class="graph">
+    </div>
+    <div class="half-section-wrapper">
+        <img src="{% static 'junapp/images/chart2.png'%}" class="graph">
+    </div>
+</div>
+
+
+<script type="text/javascript">
+{#    console.log({{ result }})#}
+    {% autoescape off %}
+        var data={{ result }}
+    {% endautoescape %}
+
+    function filterdata() {
+        var filtered_data = [];
+        for (var i = 0; i < data.length; i++) {
+            var dict = {
+                "Address":data[i]['address'],
+                "Building": data[i]['building'],
+                "Repair":data[i]['repair'],
+                "Beds":data[i]['beds'],
+                "Rooms":data[i]['room']
+            };
+            filtered_data.push(dict)
+        }
+        return filtered_data;
+    }
+
+    var svg1 = dimple.newSvg("#div-chart-price", 500, 500);
+    var chart1 = new dimple.chart(svg1, filterdata());
+    var x1 = chart1.addCategoryAxis("x", "Address");
+    // First y axis is the combination axis for revenue and profit
+    var y3 = chart1.addMeasureAxis("y", "Building");
+    var y4=chart1.addMeasureAxis("y", "Repair");
+    y3.overrideMax=2;
+    y4.overrideMax=2;
+
+    var lines1 = chart1.addSeries("Has Building ", dimple.plot.line, [x1,y3]);
+    var lines2 = chart1.addSeries("Needs Repair", dimple.plot.line, [x1,y4]);
+
+        chart1.borderColor="red";
+    lines1.lineMarkers = true;
+    chart1.addLegend(60, 5, 680, 20, "right", lines1);
+    chart1.addLegend(75, 20, 680, 20, "right", lines2);
+    chart1.draw();
+
+     var svg = dimple.newSvg("#div-chart",500,500);
+    var chart = new dimple.chart(svg, filterdata());
+    var x = chart.addCategoryAxis("x", "Address");
+    // First y axis is the combination axis for revenue and profit
+    var y1 = chart.addMeasureAxis("y", "Beds");
+    var y2=chart.addMeasureAxis("y", "Rooms");
+{#    y3.overrideMax=2;#}
+{#    y4.overrideMax=2;#}
+
+    var lines3 = chart.addSeries("No. of Beds", dimple.plot.line, [x,y1]);
+    var lines4 = chart.addSeries("No. of Rooms", dimple.plot.line, [x,y2]);
+
+        chart.borderColor="red";
+{#    lines.lineMarkers = true;#}
+{#        x.addOrderRule(['January','February','March','April','May','June','July','August','September','October','November','December']);#}
+    chart.addLegend(60, 5, 680, 20, "right", lines3);
+    chart.addLegend(75, 20, 680, 20, "right", lines4);
+    chart.draw();
+
+</script>
+    {%  endblock %}

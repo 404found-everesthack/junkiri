@@ -86,7 +86,7 @@
     y2.overrideMax = {{ result.max }};
     var bars = chart.addSeries("Average Rainfall", dimple.plot.bar, [x,y1]);
     var lines = chart.addSeries("Water Usage", dimple.plot.line, [x,y2]);
-    lines.lineMarkers = true;
+{#    lines.lineMarkers = true;#}
     x.addOrderRule(['January','February','March','April','May','June','July','August','September','October','November','December']);
 
     chart.addLegend(60, 5, 680, 20, "right", lines);

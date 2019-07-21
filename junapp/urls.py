@@ -19,7 +19,7 @@ from django.urls import path
 
 from junapp import views
 # from junapp.views import checkifreached, checkharvesting,logi,inputTest
-from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest, index, hospitalhome, harvest
+from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest, index, hospitalhome, harvest, jsondata
 
 urlpatterns = [
     path('harvestRain', harvest, name="harvestRain"),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('check-harvesting',checkharvesting, name='check-harvesting'),
     path('logistic',logi, name='logistic'),
     path('inputTest',  inputTest, name='inputTest'),
+    path('json-example/data/', jsondata, name='chart_data'),
     url(r'^city/(?P<pk>[0-9]+)$',
         views.CitiesDetailView.as_view(), name='city-detail'),
     path('cityall', views.cityall, name ='cityall')
