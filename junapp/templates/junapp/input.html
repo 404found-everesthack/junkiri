@@ -14,11 +14,11 @@
     {% csrf_token %}
         <div class="c1">
             <h3>Average Water Usage</h3>
-            <input type="text" placeholder="Enter your average water usage amount(in ltrs)">
+            <input type="text" placeholder="Enter your average water usage amount per day(in ltrs)" name="use" required>
         </div>
         <div class="c2">
             <h3>House Surface Area</h3>
-            <input type="text" placeholder="Enter the surface area here..">
+            <input type="text" placeholder="Enter the surface area here(in m2).." name="area" required>
         </div>
         <div class="c3">
             <h3>Choose Terrace Type</h3>

@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from junapp.views import checkifreached, checkharvesting
+from junapp.views import checkharvesting, rainwaterharvest
 
 urlpatterns = [
-    path('checkifreached',checkifreached,name='checkifreached'),
+    path('rainwater-harvest',rainwaterharvest,name='rainwater-harvest'),
     path('check-harvesting',checkharvesting, name='check-harvesting'),
 ]

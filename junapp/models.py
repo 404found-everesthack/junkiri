@@ -11,5 +11,8 @@ class Raindata(models.Model):
     month=models.CharField(max_length=250)
     rainfall=models.FloatField()
     evaporation=models.FloatField()
+    days=models.IntegerField()
     def __str__(self):
         return self.month
+
+
