@@ -1,4 +1,7 @@
 from django.db import models
+from django.db import models
+from django.contrib.gis.db import models as gismodels
+
 
 # Create your models here.
 class Runoff(models.Model):
@@ -32,8 +35,6 @@ class hospital(models.Model):
     optservice = models.IntegerField(null=True)
     immunizationservice = models.IntegerField(null=True)
     oralhealth = models.IntegerField(null=True)
-
-
 
 
 
