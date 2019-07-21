@@ -5,7 +5,14 @@
 
     <script src="http://d3js.org/d3.v4.min.js"></script>
     {% load staticfiles %}
-    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script><div id="page-content-wrapper">
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+    <div style="width: 100%;
+height: 5rem;
+position: relative;
+top: 5rem;">
+        <a href={% url 'cityall' %}> <button class="btn ctn-primary" style="float:right; background: cornflowerblue;color:white">View Spatially </button></a>
+    </div>
+    <div id="page-content-wrapper">
     <div class="half-section-wrapper">
         <h4>No of Beds and Rooms</h4>
         <div class="graph" id="div-chart-price">

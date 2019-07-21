@@ -310,6 +310,8 @@ def hospitalhome(request):
     return render(request,'junapp/uploader.html')
 def harvest(request):
     return render(request,'junapp/input.html')
+def spatial(request):
+    return render(request, 'junapp/city-all.html')
 
 def cityall(request):
     passed = hospital.objects.filter(passed=1)
@@ -332,4 +334,4 @@ def cityall(request):
         'passed': latlist,
         'failed':latlistfailed
     }
-    return render(request, 'city-all.html',{'context':context})
+    return render(request, 'junapp/city-all.html', {'context':context})
