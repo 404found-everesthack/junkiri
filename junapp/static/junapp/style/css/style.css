@@ -172,7 +172,19 @@
     width:35rem;
     height:auto;
 }
-
+.file-upload{
+    width: 40rem;
+    border: 1px solid lightgray;
+    height: 10rem;
+    border-radius: 5px;
+}
+.analyze-btn{
+        width: 40rem;
+    margin-top: 15px;
+    margin-left: 19.5rem;
+    background: #57c357;
+    color: white;
+}
 
 /* ########################################## essentials css ends ##########################################*/
 
