@@ -34,16 +34,9 @@ class CitiesDetailView(DetailView):
 
 
 def rainwaterharvest(request):
-    # return render(request,template_name='junapp/input.html')
-    return render(request,template_name='junapp/trainresult.html')
-    #
-    # gethospitals = hospital.objects.all()
-    # finaldata = []
-    # for i in gethospitals:
-    #     finaldata.append(
-    #         {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
+    return render(request,template_name='junapp/input.html')
+    # return render(request,template_name='junapp/trainresult.html')
 
-    # return render(request, 'junapp/logistic.html', {'result': finaldata})
 
 def jsondata(request):
     dataset=hospital.objects.all()
@@ -284,7 +277,14 @@ def logi(request):
         )
         hospitals.save()
         # print(result['Ward No'][i])
-    return render(request, 'junapp/logistic.html')
+    gethospitals = hospital.objects.all()
+    finaldata = []
+    for i in gethospitals:
+        finaldata.append(
+            {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
+
+    return render(request, 'junapp/logistic.html', {'result': finaldata})
+    # return render(request, 'junapp/logistic.html')
 
 
 def result(request):
