@@ -1,0 +1,13 @@
+"id";"month";"rainfall";"evaporation";"days"
+1;"January";5.0;0.5;31
+2;"February";2.0;0.5;28
+3;"March";14.0;0.6;31
+4;"April";51.0;0.65;30
+5;"May";20.0;0.65;31
+6;"June";70.0;0.75;30
+7;"July";93.6;0.75;31
+8;"August";64.0;0.7;31
+9;"September";34.5;0.7;30
+10;"October";91.0;0.65;31
+11;"November";0.0;0.6;30
+12;"December";0.0;0.5;31
