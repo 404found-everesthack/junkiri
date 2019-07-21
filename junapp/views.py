@@ -270,7 +270,7 @@ def result(request):
 
 def index(request):
     return render(request,'junapp/index.html')
-def hospitalHome(request):
+def hospitalhome(request):
     return render(request,'junapp/uploader.html')
 def harvest(request):
     return render(request,'junapp/input.html')

@@ -1,8 +1,7 @@
 {% extends "junapp/home.html" %}
 {% block content %}
 
-
-
+{% load staticfiles %}
 <div id="page-content-wrapper">
     <div class="section-wrapper row disp-inline">
         <div class="insights-green col-md-1">
@@ -25,23 +24,23 @@
     </div>
     <div class="half-section-wrapper">
         <h4>Hospitals</h4>
-        <img src="images/chart1.jpg" class="graph">
+        <img src="{% static 'junapp/images/chart1.jpg'%}" class="graph">
     </div>
     <div class="half-section-wrapper">
         <h4>Rain Water Harvest</h4>
 
-        <img src="images/chart2.png" class="graph">
+        <img src="{% static 'junapp/images/chart2.png'%}" class="graph">
     </div>
     <div class="half-section-wrapper">
         <h4>Telecom</h4>
 
-        <img src="images/chart3.png" class="graph">
+        <img src="{% static 'junapp/images/chart3.png'%}" class="graph">
     </div>
     <div class="half-section-wrapper">
-        <img src="images/chart2.png" class="graph">
+        <img src="{% static 'junapp/images/chart1.jpg'%}" class="graph">
     </div>
     <div class="half-section-wrapper">
-        <img src="images/chart3.png" class="graph">
+        <img src="{% static 'junapp/images/chart2.png'%}" class="graph">
     </div>
 </div>
     {%  endblock %}
