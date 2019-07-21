@@ -46,7 +46,7 @@
     <!--        Default side nav bar starts-->
     <div id ="default-sidebar" class="default"  onmouseover="detail()" >
         <ul class="sidebar-nav-default">
-            <li><a href="#"><img src="{% static 'junapp/images/icon/hospital.png' %}" class="nav-icon"></a></li>
+            <li><a href={% url 'hospitalHome' %}><img src="{% static 'junapp/images/icon/hospital.png' %}" class="nav-icon"></a></li>
             <li><a href="#"><img src="{% static 'junapp/images/icon/cloud.png' %}" class="nav-icon"></a></li>
             <li><a href="#"><img src="{% static 'junapp/images/icon/communicate.png' %}" class="nav-icon"></a></li>
             <li><a href="#"><img src="{% static 'junapp/images/icon/transport.png' %}" class="nav-icon"></a></li>
@@ -54,12 +54,12 @@
         </ul>
     </div>
 
-    <!--        Default side nav bar ends here-->
+    <!--Default side nav bar ends here-->
     <!--Discriptive side navbar on clicking logo starts-->
     <div class="detail" id="detail-sidebar" onmouseover="detail()" onmouseout="defaultSidebar()" >
         <ul class="sidebar-nav">
-            <li><a href="#"><img src="{% static 'junapp/images/icon/hospital.png' %}" class="nav-icon-desc">Hospital</a></li>
-            <li><a href="#"><img src="{% static 'junapp/images/icon/cloud.png' %}" class="nav-icon-desc">Resources</a></li>
+            <li><a href={% url 'uploader' %}><img src="{% static 'junapp/images/icon/hospital.png' %}" class="nav-icon-desc">Hospital</a></li>
+            <li><a href={% url 'harvestRain' %}><img src="{% static 'junapp/images/icon/cloud.png' %}" class="nav-icon-desc">Resources</a></li>
             <li><a href="#"><img src="{% static 'junapp/images/icon/communicate.png' %}" class="nav-icon-desc">Telecommunication</a></li>
             <li><a href="#"><img src="{% static 'junapp/images/icon/transport.png' %}" class="nav-icon-desc">Transportation</a></li>
 
@@ -67,10 +67,8 @@
 
     </div>
     <!--discrptive side nav bar ends here-->
-
-
     <script>
-        //        display detail sidebar onover
+        // display detail sidebar onover
         function detail(e) {
             $("#detail-sidebar").show();
             $("#default-sidebar").hide();

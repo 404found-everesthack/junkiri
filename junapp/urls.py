@@ -18,9 +18,12 @@ from django.urls import path
 
 from junapp import views
 # from junapp.views import checkifreached, checkharvesting,logi,inputTest
-from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest
+from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest, index, hospitalHome, harvest
 
 urlpatterns = [
+    path('harvestRain', harvest, name="harvestRain"),
+    path('uploader',hospitalHome, name="uploader"),
+    path('index', index, name="index"),
     path('rainwater-harvest',rainwaterharvest,name='rainwater-harvest'),
     path('check-harvesting',checkharvesting, name='check-harvesting'),
     path('logistic',logi, name='logistic'),

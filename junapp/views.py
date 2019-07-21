@@ -257,3 +257,10 @@ def result(request):
     #     data_dict["end_date_time"] = fields[2]
     #     data_dict["notes"] = fields[3]
     return render(request, 'junapp/logistic.html')
+
+def index(request):
+    return render(request,'junapp/index.html')
+def hospitalHome(request):
+    return render(request,'junapp/uploader.html')
+def harvest(request):
+    return render(request,'junapp/input.html')
