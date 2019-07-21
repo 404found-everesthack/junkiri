@@ -136,7 +136,7 @@
 }
 #page-content-wrapper{
     width:95%;
-    min-height: 100%;
+    min-height: 100vh;
     position: relative;
     margin-top:3%;
     padding: 15px;
@@ -164,6 +164,7 @@
     box-shadow: 0 12px 18px rgba(0,0,0,0.12);
 
 }
+
 .disp-inline{
     display: inline-block;
 }

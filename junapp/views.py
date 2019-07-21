@@ -23,7 +23,8 @@ from junapp.models import Runoff, Raindata, hospital
 
 
 def rainwaterharvest(request):
-    return render(request,template_name='junapp/input.html')
+    # return render(request,template_name='junapp/input.html')
+    return render(request, template_name='junapp/uploader.html')
 
 def checkharvesting(request):
     runoff=Runoff.objects.filter(id=request.POST.get('type'))
