@@ -283,8 +283,15 @@ def logi(request):
             # log=str(round(result['long'][i],4))
         )
         hospitals.save()
+    gethospitals = hospital.objects.all()
+    finaldata = []
+    for i in gethospitals:
+        finaldata.append(
+            {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
+
+    return render(request, 'junapp/logistic.html', {'result': finaldata})
         # print(result['Ward No'][i])
-    return render(request, 'junapp/logistic.html')
+    # return render(request, 'junapp/logistic.html')
 
 
 def result(request):
