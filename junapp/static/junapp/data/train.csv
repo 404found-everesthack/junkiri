@@ -1,0 +1,37 @@
+Ward No,Address,Type of Health facility,Does this health facility have its own building?,Infrastructure Needs Repairing,Number of rooms available in the health facilities? Number,How many bed are available in this hospital?,OPD service avaliable?,Immunization Service Avaliable,"How many days, immunization service is provided?",Laboraotry Service Avaliable,ASRH (Adolescent Friendly Services) Service Avaliable,Mental health Service Avaliable,Substance abuse Service Avaliable,Oral Health Service Avaliable,Passed Threshold,lat,long
+1,"Bode, khapala",Urban Health Centre,0,1,2,0,1,0,0,0,0,0,0,1,0,28.8148,80.5531
+16,Lokanthali,Health Post,0,1,3,0,1,1,2,0,1,1,1,1,0,28.1207,81.6859
+16,Lokanthali,Private Hospital,0,0,0,0,0,1,2,1,0,0,0,0,0,28.1246,81.6868
+5,"Nagadesh, Madhyapur thimi",Health Post,1,1,5,0,1,1,1,0,1,1,0,1,0,28.0523,81.6201
+7,Madhyapur thimi,Health Post,0,1,5,0,1,1,1,0,0,1,0,1,0,28.0523,81.6201
+14,Balkumari thimi,Health Post,0,1,1,0,1,1,1,0,1,1,1,1,0,28.0528,81.6205
+8,Sehari,Health Post,1,1,4,0,1,1,11,0,0,1,0,1,0,28.0529,81.6205
+5,Salyanibagh,Urban Health Centre,0,1,2,0,1,1,9,0,0,0,1,1,0,28.0531,81.6207
+7,Shreepur,Health Post,1,1,16,,1,1,11,0,1,0,0,1,0,28.0530,81.6205
+3,"Bageswori tol, khanepani",Urban Health Centre,0,1,2,0,1,1,9,0,0,0,0,1,0,28.0531,81.6208
+22,Paraspur,Health Post,1,0,3,0,1,1,11,0,1,0,0,1,0,28.0529,81.6207
+13,Charbaihini,Private Hospital,1,1,60,50,1,0,,1,0,0,0,0,0,28.0529,81.6205
+13,Gosaingaun,Urban Health Centre,0,1,3,0,1,1,9,0,0,1,1,1,0,28.0545,81.6163
+26,Manikapur,Health Post,1,1,6,0,1,1,9,0,0,0,0,1,0,28.0549,81.6164
+6,Jaispur,Health Post,1,1,8,0,1,1,2,0,1,0,0,0,0,28.0550,81.6165
+2,Attariya,Government Hospital,1,1,9,0,1,1,11,1,1,1,0,1,0,28.0551,81.6164
+4,Attariya,Jamunabhadi Community Health Unit,0,1,25,51,1,1,1,1,1,1,1,1,1,28.0556,81.6161
+12,Geta,Health Post,1,1,10,,1,1,11,1,1,0,0,1,1,28.0561,81.6167
+14,Madhyapur Thimi,Private Hospital,1,1,30,100,1,1,1,1,1,1,1,1,1,28.0545,81.6158
+13,Padma lane,Private Hospital,0,1,50,50,1,0,,1,0,1,0,1,0,28.0572,81.6169
+6,Jamunabhadi,Community Health Unit,0,1,3,0,1,0,,0,1,0,1,0,0,28.8148,80.5510
+11,Madhyapur mes danda,Community Hospital,1,1,30,50,1,1,1,1,1,1,1,1,1,28.8155,80.5541
+13,Charbaini road,Private Hospital,1,1,20,25,1,1,6,1,0,0,0,1,1,28.8157,80.5538
+20,Piprahawa,Health Post,1,0,3,0,1,1,6,0,0,0,0,0,0,28.8116,80.5534
+13,Ganeshman chowk,Private Hospital,0,1,15,15,1,0,,1,0,0,0,0,0,28.8124,80.5521
+18,Udayapur,Health Post,1,1,8,0,1,1,1,0,1,0,0,1,0,28.7765,80.5916
+15,Gatthaghar,Private Hospital,0,1,24,100,1,1,2,1,0,1,0,1,1,28.7392,80.5669
+16,BP chowk,Private Hospital,1,1,45,250,1,1,1,1,0,1,0,1,1,28.7391,80.5669
+1,Chandnath Tole (Jumli Tole),Urban Health Centre,0,1,2,0,1,1,9,0,1,0,1,1,0,27.6743,85.3718
+7,"Phultekra ramnagar, nepalgunj",Urban Health Centre,0,1,2,0,1,1,9,0,1,0,1,1,0,28.0588,81.6240
+25,Basudebpur,Health Post,1,0,3,0,1,1,8,0,1,0,0,1,0,28.0679,81.6272
+24,Khaskarkado,Health Post,0,0,2,0,1,1,6,0,1,1,0,1,0,28.0685,81.6278
+28,Puraini,Health Post,1,1,5,0,1,1,6,0,0,0,0,1,0,28.0719,81.6317
+19,Bhawaniyapur,Health Post,1,1,3,0,1,1,9,0,0,0,0,1,0,28.0700,81.6338
+16,Nepalgunj,Health Post,1,1,11,0,1,1,6,0,0,0,0,1,0,28.0688,81.6350
+13,Charbaihini,Government Hospital,1,0,200,150,1,1,5,1,1,1,1,1,1,28.0502,81.6189

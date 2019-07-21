@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from junapp.views import checkifreached, checkharvesting
+from junapp import views
+from junapp.views import checkifreached, checkharvesting,logi,inputTest
 
 urlpatterns = [
     path('checkifreached',checkifreached,name='checkifreached'),
     path('check-harvesting',checkharvesting, name='check-harvesting'),
+    path('logistic',logi, name='logistic'),
+    path('inputTest', inputTest, name='inputTest')
+
 ]
