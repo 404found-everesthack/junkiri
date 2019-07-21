@@ -315,12 +315,21 @@ def cityall(request):
     passed = hospital.objects.filter(passed=1)
     failed= hospital.objects.filter(passed=0)
     latlist = []
-    long =[]
+    latlistfailed =[]
     print('here')
     for i in passed:
-        print(i.lat+" "+i.log)
+        latlist.append([i.address,float(i.lat),float(i.log)])
+
+    print(latlist)
+
+    print("\nFialed")
+
+    for i in failed:
+        latlistfailed.append([i.address,float(i.lat),float(i.log)])
+    print(latlistfailed)
 
     context ={
-        'passed': passed
+        'passed': latlist,
+        'failed':latlistfailed
     }
-    return render(request, 'city-all.html', context)
+    return render(request, 'city-all.html',{'context':context})
