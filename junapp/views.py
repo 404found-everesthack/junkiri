@@ -20,6 +20,16 @@ import matplotlib.pyplot as plt
 # Create your views here.
 from junapp.form import InputForm
 from junapp.models import Runoff, Raindata, hospital
+from django.views.generic import DetailView
+from .models import hospital
+
+
+class CitiesDetailView(DetailView):
+    """
+        City detail view.
+    """
+    template_name = 'city-details.html'
+    model = hospital
 
 
 def rainwaterharvest(request):
@@ -264,3 +274,17 @@ def hospitalHome(request):
     return render(request,'junapp/uploader.html')
 def harvest(request):
     return render(request,'junapp/input.html')
+
+def cityall(request):
+    passed = hospital.objects.filter(passed=1)
+    failed= hospital.objects.filter(passed=0)
+    latlist = []
+    long =[]
+    print('here')
+    for i in passed:
+        print(i.lat+" "+i.log)
+
+    context ={
+        'passed': passed
+    }
+    return render(request, 'city-all.html', context)

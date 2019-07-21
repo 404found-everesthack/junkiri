@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+{% load leaflet_tags %}
+{% leaflet_css %}
+{% leaflet_js %}
+
+<div>
+    <h1>{{ hospital.address }}</h1>
+    {% leaflet_map "main" callback="map_init" %}
+</div>
+{% for i in citya %}
+    {{ i.log }}
+        {{ i.lat }}
+
+
+{% endfor %}
+
+<script type="text/javascript">
+    {% autoescape off %}
+        var map  = {{ citya}}
+        console.log(map)
+    {% endautoescape %}
+    function map_init(map, options) {
+        // get point lat and lon
+        var lon = "{{ hospital.log }}";
+        var lat = "{{ hospital.lat }}";
+        // zoom to point & add it to map
+        map.setView([lat, lon], 12);
+
+
+
+        L.marker([lat, lon]).addTo(map);
+    }
+</script>
+</body>
+</html>
