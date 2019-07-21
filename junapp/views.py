@@ -29,6 +29,7 @@ def checkharvesting(request):
     runoff=Runoff.objects.filter(id=request.POST.get('type'))
     for i in runoff:
         coefficient=i.coefficient
+        type=i.description
     months=Raindata.objects.all()
     totalwater=0
     monthly=[]
@@ -41,6 +42,8 @@ def checkharvesting(request):
         if (max<rainwater):
             max=rainwater
         usage=int(request.POST.get('use'))*i.days
+        if (max<usage):
+            max=usage
         waterrequired=usage-rainwater
         # calculating average water bill after rain harvesting
         if (waterrequired<500):
@@ -76,7 +79,10 @@ def checkharvesting(request):
         'monthly':monthly,
         'max':max,
         'maxexpense':maxexpense,
-        'totalsave':round(totalsave,2)
+        'totalsave':round(totalsave,2),
+        'usage':request.POST.get('use'),
+        'area':request.POST.get('area'),
+        'terrace_type':type
     }
 
     print(monthly)

@@ -13,12 +13,12 @@
         <form action="{% url 'check-harvesting' %}" method="post">
     {% csrf_token %}
         <div class="c1">
-            <h3>Average Water Usage</h3>
-            <input type="text" placeholder="Enter your average water usage amount per day(in ltrs)" name="use" required>
+            <h3>Average Water Usage Per Day (ltr)</h3>
+            <input type="text" placeholder="Enter your average water usage amount per day(in ltr)" name="use" required>
         </div>
         <div class="c2">
-            <h3>House Surface Area</h3>
-            <input type="text" placeholder="Enter the surface area here(in m2).." name="area" required>
+            <h3>House Surface Area (sq m)</h3>
+            <input type="text" placeholder="Enter the surface area here(in sq m).." name="area" required>
         </div>
         <div class="c3">
             <h3>Choose Terrace Type</h3>

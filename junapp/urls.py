@@ -18,12 +18,12 @@ from django.urls import path
 
 from junapp import views
 # from junapp.views import checkifreached, checkharvesting,logi,inputTest
-from junapp.views import checkharvesting, rainwaterharvest
+from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest
 
 urlpatterns = [
     path('rainwater-harvest',rainwaterharvest,name='rainwater-harvest'),
     path('check-harvesting',checkharvesting, name='check-harvesting'),
     path('logistic',logi, name='logistic'),
-    path('inputTest', inputTest, name='inputTest')
+    path('inputTest',  inputTest, name='inputTest')
 
 ]

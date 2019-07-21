@@ -1,24 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'junapp/style/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'junapp/style/css/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'junapp/style/css/harvest.css' %}">
+<script src="{% static 'junapp/style/js/jquery.min.js' %}"></script>
+<script src="{% static 'junapp/style/js/bootstrap.min.js' %}"></script>
+     <script src="http://d3js.org/d3.v4.min.js"></script>
     {% load staticfiles %}
     <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
-    <link rel="stylesheet" href="{% static 'junapp/style/css/bootstrap.min.css' %}">
 
-    <style>
-        .none {display: none}
-    </style>
 </head>
 <body>
-<h1>You will save Rs. {{ result.totalsave }} this year</h1>
-<div class="row">
-    <div class="col-sm-6" id="div-chart">
 
-    </div>
-    <div class="col-sm-6" id="div-chart-price">
+<div class="upper-half">
+    <div class="row disp-inline param">
+        <div class="insights-green col-md-1">
+            <h3 class="no-pad">Usage</h3>
+            <p>{{ result.usage }} ltr/day</p>
+        </div>
+        <div class="insights-blue col-md-1">
+            <h3 class="no-pad">Surface Area</h3>
+            <p>{{ result.area }} sq m</p>
+        </div>
+        <div class="insights-red col-md-1">
+            <h3 class="no-pad">Terrace</h3>
+            <p>{{ result.terrace_type }}</p>
+        </div>
+        <div class="harvest">
+            <h3>Harvested Rainwater</h3>
+            <p>{{ result.totalwater }} ltr</p>
+        </div>
+        <div class="harvest" style="border-right: 1px solid white">
+            <h3>Amount Saved</h3>
+            <p>Rs. {{ result.totalsave }}</p>
+        </div>
 
     </div>
 </div>
+<div class="section-wrapper">
+    <h3>Rainwater Collection and Usage</h3>
+    <div id="div-chart" class="align-mid">
 
+    </div>
+</div>
+<div class="section-wrapper">
+    <h3>Expense for Water</h3>
+      <div id="div-chart-price" class="align-mid">
+
+    </div>
+</div>
 <script type="text/javascript">
     {% autoescape off %}
         var data={{ result.monthly }}
@@ -78,3 +114,4 @@
 </script>
 
 </body>
+</html>

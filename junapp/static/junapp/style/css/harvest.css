@@ -97,7 +97,7 @@ body{
     display: none;
     height:3rem;
 }
-.prev-input button{
+.prev-input span{
     border: none;
     background: none;
     outline: none;
@@ -105,7 +105,7 @@ body{
 .prev-input .fa{
     padding-left: 5px;
 }
-.prev-input button:hover{
+.prev-input span:hover{
     transform: scale(1.2);
     color:green;
     font-weight: bold;
@@ -215,4 +215,7 @@ body{
     .harvest p{
         font-weight: bold;
         color:#dc2487;
+    }
+    .align-mid{
+        padding-left:18%
     }
