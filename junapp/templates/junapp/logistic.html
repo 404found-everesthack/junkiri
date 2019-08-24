@@ -4,8 +4,76 @@
    {% load staticfiles %}
 
     <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     {% load staticfiles %}
     <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script><div id="page-content-wrapper">
+<div class="section-wrapper" >
+    <h3 class="text-center">Hospital/Health Post Evaluation </h3>
+    <div style="height: 400px">
+    <canvas id="chart-area"></canvas>
+    </div>
+
+</div>
+    <div class="section-wrapper">
+    <h4 class="text-center">Detailed Report</h4>
+         <table class="table">
+        <thead>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Beds</th>
+        <th>Immunization Service</th>
+        <th>No. of rooms</th>
+        <th>OPT Service</th>
+        <th>Oral Health Service</th>
+        <th>Repairing</th>
+        </thead>
+
+            {% for each in result.finaldata %}
+                <tr>
+                {% if each.pass == 0 %}
+                    <td class="fail">{{ each.address }}</td>
+                {% else %}
+                    <td class="pass">{{ each.address }}</td>
+                {% endif %}
+                    <td>{{ each.type }}</td>
+                {% if each.beds <= 10 %}
+                    <td class="fail">{{ each.beds }}</td>
+                {% elif each.beds <= 40 %}
+                    <td class="yellow">{{ each.beds }}</td>
+                {% else %}
+                    <td>{{ each.beds }}</td>
+                {% endif %}
+                {% if each.immunizationservice == 0 %}
+                <td class="fail">No</td>
+                {% else %}
+                <td>Yes</td>
+                {% endif %}
+                {% if each.rooms <= 10 %}
+                    <td class="fail">{{ each.rooms }}</td>
+                {% elif each.rooms <= 40 %}
+                    <td class="yellow">{{ each.rooms }}</td>
+                {% else %}
+                    <td>{{ each.rooms }}</td>
+                {% endif %}
+                    {% if each.optservice == 0 %}
+                <td class="fail">No</td>
+                {% else %}
+                <td>Yes</td>
+                {% endif %}
+                {% if each.oralhealth == 0 %}
+                <td class="fail">No</td>
+                {% else %}
+                <td>Yes</td>
+                {% endif %}
+                {% if each.repair == 0 %}
+                <td>No</td>
+                {% else %}
+                <td class="fail">Yes</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
     <div class="half-section-wrapper">
         <h4>No of Beds and Rooms</h4>
         <div class="graph" id="div-chart-price">
@@ -19,14 +87,7 @@
         </div>
 {#        <img src="{% static 'junapp/images/chart2.png'%}" class="graph">#}
     </div>
-    <div class="half-section-wrapper">
-        <h4>Telecom</h4>
 
-        <img src="{% static 'junapp/images/chart3.png'%}" class="graph">
-    </div>
-    <div class="half-section-wrapper">
-        <img src="{% static 'junapp/images/chart1.jpg'%}" class="graph">
-    </div>
     <div class="half-section-wrapper">
         <img src="{% static 'junapp/images/chart2.png'%}" class="graph">
     </div>
@@ -34,9 +95,33 @@
 
 
 <script type="text/javascript">
+
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [{{ result.pass }}, {{ result.fail }}],
+                        backgroundColor: ["#028910","#C40233"]
+
+                    }],
+                    labels: [
+                        'Pass',
+                        'Fail'
+                    ]
+                },
+               options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+		};
+
 {#    console.log({{ result }})#}
     {% autoescape off %}
-        var data={{ result }}
+        var data={{ result.finaldata }}
     {% endautoescape %}
 
     function filterdata() {

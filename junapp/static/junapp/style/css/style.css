@@ -164,6 +164,15 @@
     box-shadow: 0 12px 18px rgba(0,0,0,0.12);
 
 }
+.pass{
+    background-color: mediumseagreen;
+}
+.fail{
+    background-color: indianred;
+}
+.yellow{
+    background-color: #f0ff66;
+}
 
 .disp-inline{
     display: inline-block;

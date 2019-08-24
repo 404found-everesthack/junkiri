@@ -11,6 +11,8 @@ from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.pipeline import Pipeline
+# import chart-studio.plotly as py
+# import plotly.graph_objs as go
 
 import matplotlib.pyplot as plt
 
@@ -64,6 +66,16 @@ def jsondata(request):
     }
 
     print(jsondata(chart))
+
+def plotchart(request):
+    fig = {
+        'data': [{'labels': ['Residential', 'Non-Residential', 'Utility'],
+                  'values': [19, 26, 55],
+                  'type': 'pie'}],
+        'layout': {'title': 'Forcasted 2014 U.S. PV Installations by Market Segment'}
+    }
+
+    py.iplot(fig)
 
 def checkharvesting(request):
     runoff=Runoff.objects.filter(id=request.POST.get('type'))
@@ -256,7 +268,10 @@ def logi(request):
     # out.save()
     print('Here')
     a = len(result['Ward No'])
+    print(a)
     for i in range(a):
+        print(i)
+        print(result['Address'][i])
         hospitals = hospital.objects.create(
             ward_no=result['Ward No'][i],
             address=result['Address'][i],
@@ -272,19 +287,32 @@ def logi(request):
             immunizationservice = result['Immunization Service Avaliable'][i],
             oralhealth= result['Oral Health Service Avaliable'][i]
 
-            # lat=str(round(result['lat'][i],4)),
-            # log=str(round(result['long'][i],4))
         )
         hospitals.save()
         # print(result['Ward No'][i])
+    # gethospitals = hospital.objects.all()
+    # finaldata = []
+    # for i in gethospitals:
+    #     finaldata.append(
+    #         {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
+    #
+    # return render(request, 'junapp/logistic.html', {'result': finaldata})
+    # return render(request, 'junapp/logistic.html')
+    passed = hospital.objects.filter(passed=1).count()
+    failed = hospital.objects.filter(passed=0).count()
+    total = passed + failed
     gethospitals = hospital.objects.all()
+
     finaldata = []
     for i in gethospitals:
         finaldata.append(
-            {'address': i.address, 'building': i.building, 'repair': i.repair, 'beds': i.beds, 'room': i.noofrooms})
-
-    return render(request, 'junapp/logistic.html', {'result': finaldata})
-    # return render(request, 'junapp/logistic.html')
+            {'address': i.address, 'building': i.building, 'immunizationservice':i.immunizationservice, 'beds':i.beds,'optservice':i.optservice,'oralhealth':i.oralhealth,'type':i.type, 'repair': i.repair, 'pass': i.passed, 'room': i.noofrooms})
+    finalresult = {
+        'finaldata': finaldata,
+        'pass':passed,
+        'fail':failed
+    }
+    return render(request, 'junapp/logistic.html', {'result': finalresult})
 
 
 def result(request):
