@@ -19,9 +19,10 @@ from django.urls import path
 
 from junapp import views
 # from junapp.views import checkifreached, checkharvesting,logi,inputTest
-from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest, index, hospitalhome, harvest, jsondata
+from junapp.views import checkharvesting, rainwaterharvest, logi, inputTest, index, hospitalhome, harvest, jsondata, spatial
 
 urlpatterns = [
+    path('spatial', spatial, name="spatial"),
     path('harvestRain', harvest, name="harvestRain"),
     path('uploader',hospitalhome, name="uploader"),
     path('index', index, name="index"),
