@@ -20,7 +20,11 @@
             <h3>House Surface Area (sq m)</h3>
             <input type="text" placeholder="Enter the surface area here(in sq m).." name="area" required>
         </div>
-        <div class="c3">
+            <div class="c3">
+                <h3>Total Storeys</h3>
+                <input type="text" placeholder="Enter the total storey from your harvesting area to ground" name="storey" required>
+            </div>
+        <div class="c4">
             <h3>Choose Terrace Type</h3>
             <div class="terrace-type">
                 <label>
@@ -124,10 +128,14 @@
             $('.c2').addClass('show fade-in');
 
         }
-
-        else if( count==3){
-            $('.c2').removeClass('show').addClass('hide');
+        else if(count==3){
+            $('.prev-input').addClass('show');
+            $('.c2').addClass('hide').removeClass('show');
             $('.c3').addClass('show fade-in');
+        }
+        else if( count==4){
+            $('.c3').removeClass('show').addClass('hide');
+            $('.c4').addClass('show fade-in');
             $('.next-input').removeClass('show').addClass('hide');
             $('.submit-input').removeClass('hide').addClass('show');
 

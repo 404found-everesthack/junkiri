@@ -77,6 +77,8 @@ def checkharvesting(request):
     max=0
     maxexpense=0
     totalsave=0
+    totalinstallingcost=(float(request.POST.get('storey'))*400*4.5)+(230*3)+52500
+
     for i in months:
         # Q=kRA
         rainwater=coefficient*i.evaporation*i.rainfall*float(request.POST.get('area'))
@@ -123,7 +125,8 @@ def checkharvesting(request):
         'totalsave':round(totalsave,2),
         'usage':request.POST.get('use'),
         'area':request.POST.get('area'),
-        'terrace_type':type
+        'terrace_type':type,
+        'totalinstallingcost':totalinstallingcost
     }
 
     print(monthly)

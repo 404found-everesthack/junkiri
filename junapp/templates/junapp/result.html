@@ -20,6 +20,9 @@
 
 <div class="upper-half">
     <div class="row disp-inline param">
+
+
+        </>
         <div class="insights-green col-md-1">
             <h3 class="no-pad">Usage</h3>
             <p>{{ result.usage }} ltr/day</p>
@@ -38,7 +41,11 @@
         </div>
         <div class="harvest" style="border-right: 1px solid white">
             <h3>Amount Saved</h3>
-            <p>Rs. {{ result.totalsave }}</p>
+            <p>Rs. {{ result.totalsave }} per year</p>
+        </div>
+        <div class="harvest" style="border-right: 1px solid white">
+            <h3>Installation Cost</h3>
+            <p>Rs. {{ result.totalinstallingcost }} (once)</p>
         </div>
 
     </div>
